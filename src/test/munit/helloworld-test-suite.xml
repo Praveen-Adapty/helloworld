@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:munit="http://www.mulesoft.org/schema/mule/munit" xmlns:munit-tools="http://www.mulesoft.org/schema/mule/munit-tools"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xsi:schemaLocation="
+		http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+		http://www.mulesoft.org/schema/mule/munit http://www.mulesoft.org/schema/mule/munit/current/mule-munit.xsd
+		http://www.mulesoft.org/schema/mule/munit-tools  http://www.mulesoft.org/schema/mule/munit-tools/current/mule-munit-tools.xsd">
+	<munit:config name="helloworld-test-suite.xml" />
+	<munit:test name="helloworld-test-suiteTest" doc:id="df61994c-f6a7-456c-b4de-7eda695fe085" >
+		<munit:execution >
+			<munit:set-event doc:name="Set Event" doc:id="87d07759-1129-4c34-86b5-e0b547b9dc47" >
+				<munit:payload value="#['helloword']" mediaType="application/json" />
+			</munit:set-event>
+			<flow-ref doc:name="Flow Reference" doc:id="6d9ab530-5b6b-41e7-a6d0-4ed95d557247" name="helloworldFlow"/>
+		</munit:execution>
+		<munit:validation>
+			<munit-tools:assert-equals doc:name="Assert equals" doc:id="eab9ce9a-2921-4503-a6a8-6136c722525e" actual="#[payload]" expected='#["Helloworld"]'/>
+		</munit:validation>
+	</munit:test>
+
+
+</mule>
