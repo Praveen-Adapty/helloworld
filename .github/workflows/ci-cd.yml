@@ -39,4 +39,23 @@ jobs:
       - uses: actions/setup-java@v1
         with:
           java-version: 1.8
+      # Build using maven
+      - name: Build/compile mule project
+        run: mvn -B --file pom.xml
+      # upload artifacts
+      - name: Upload build artifact
+        uses: actions/upload-artifact@main
+        with:
+          name: artifacts
+          path: target/*.jar
+      # Runs a set of commands using the runners shell
+      - name: Print the message build 
+        run: |
+         echo compile process end
+     # This work flow contains a single job called build
+ 
+ 
+        
+        
+      
           
