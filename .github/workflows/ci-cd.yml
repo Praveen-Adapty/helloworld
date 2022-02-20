@@ -44,22 +44,4 @@ jobs:
           
    # This workflow contains a single job called "build"     
   
-  deployToEC2:
-    needs: build
-    runs-on: ubuntu-latest
-    # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:
-      # Checks-out your repository
-      - uses: actions/checkout@v2     
-      - uses: actions/download-artifact@main
-        with:
-           name: artifacts        
-      - name: SSH Deploy to standalone server1     
-        uses: easingthemes/ssh-deploy@v2.2.11
-        #with:
-         #SSH_PRIVATE_KEY: ${{secrets.SSH_PRIVATE_KEY}}
-         #REMOTE_HOST: ${{secrets.REMOTE_HOST}}
-         #REMOTE_USER: ${{secrets.REMOTE_USER}}
-         #REMOTE_PORT: 22
-        # SOURCE:  //*.jar
-        # TARGET: "/etc/mule/mule-standalone-4.4.0/apps"
+  
