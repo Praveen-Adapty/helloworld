@@ -32,7 +32,7 @@ jobs:
          run: mvn -B package --file pom.xml   
          # Upload Artifacts 
        - name: Upload a Build Artifact
-         uses: actions/upload-artifact@feat/JM-1
+         uses: actions/upload-artifact@main
          with:
           name: artifacts
           path: target/*.jar
@@ -50,7 +50,7 @@ jobs:
     steps:
       # Checks-out your repository
       - uses: actions/checkout@v2     
-      - uses: actions/download-artifact@feat/JM-1
+      - uses: actions/download-artifact@main
         with:
            name: artifacts        
       - name: SSH Deploy to standalone server1     
