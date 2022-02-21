@@ -61,6 +61,6 @@ jobs:
          REMOTE_USER: ${{secrets.REMOTE_USER}}
          REMOTE_PORT: 22
          SOURCE:  //*.jar
-         TARGET: "/home/ubuntu/Mule apps"
+         TARGET: "/opt/mule/mule-standalone-4.2.1/apps"
 
 
